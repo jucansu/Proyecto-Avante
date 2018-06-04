@@ -2,17 +2,16 @@ package pepe.model;
 
 public abstract class Persona {
 	
+	private int id;
 	private String nombre, apellidos, contraseña, email, avatar;
 	private Rol rol;
 	
-	public Persona(String nombre, String apellidos, String contraseña, String email, String avatar, Rol rol) {
-		super();
-		this.nombre = nombre;
-		this.apellidos = apellidos;
-		this.contraseña = contraseña;
-		this.email = email;
-		this.avatar = avatar;
-		this.rol = rol;
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
 	}
 
 	public String getNombre() {

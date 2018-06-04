@@ -5,8 +5,8 @@ public class Usuario extends Persona{
 	private String mensajeBaneo;
 	private Estado estado;
 
-	public Usuario(String nombre, String apellidos, String contraseña, String email, String avatar, Rol rol) {
-		super(nombre, apellidos, contraseña, email, avatar, rol);
+	public Usuario() {
+		super();
 	}
 
 	public String getMensajeBaneo() {
