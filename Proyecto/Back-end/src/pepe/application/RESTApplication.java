@@ -8,7 +8,7 @@ import org.glassfish.jersey.server.ResourceConfig;
 public class RESTApplication extends ResourceConfig {
 
   public RESTApplication () {
-    packages("ws.services");
+    packages("pepe.services");
   }
 
 }

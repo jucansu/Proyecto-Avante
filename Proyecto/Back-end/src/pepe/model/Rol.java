@@ -1,5 +1,5 @@
 package pepe.model;
 
 public enum Rol {
-	USER, ADMIN;
+	USUARIO, ADMINISTRADOR;
 }

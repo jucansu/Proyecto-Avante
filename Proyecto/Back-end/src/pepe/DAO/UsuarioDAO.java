@@ -25,11 +25,11 @@ public class UsuarioDAO {
 			stmt = con.createStatement();
 
 			// create SQL statement using left outer join
-			StringBuilder sb = new StringBuilder("select usuario.id as userId, usuario.name as userName,")
-					.append("usuario.apellidos as userApellidos, usuario.contraseña as userContraseña")
-					.append("usuario.email as userEmail, usuario.avatar as userAvatar,")
-					.append("usuario.rol as userRol, usuario.mensajebaneo as userMensajeBaneo,")
-					.append("usuario.estado as userEstado from Usuario left outer order by user.id");
+			StringBuilder sb = new StringBuilder("select usuario.id as userId, usuario.nombre as userName, ")
+					.append("usuario.apellidos as userApellidos, usuario.contraseña as userContraseña, ")
+					.append("usuario.email as userEmail, usuario.avatar as userAvatar, ")
+					.append("usuario.rol as userRol, usuario.mensajebaneo as userMensajeBaneo, ")
+					.append("usuario.estado as userEstado from Usuario order by usuario.id");
 
 			// execute the query
 			rs = stmt.executeQuery(sb.toString());
@@ -47,6 +47,7 @@ public class UsuarioDAO {
 				user.setRol(Rol.valueOf(rs.getString("userRol")));
 				user.setMensajeBaneo((rs.getString("userMensajeBaneo")));
 				user.setEstado(Estado.valueOf(rs.getString("userEstado")));
+				users.add(user);
 			}
 
 			return users;
