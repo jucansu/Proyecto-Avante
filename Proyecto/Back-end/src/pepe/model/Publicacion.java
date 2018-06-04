@@ -3,6 +3,7 @@ package pepe.model;
 import java.sql.Date;
 import java.sql.SQLException;
 import java.time.LocalDate;
+import java.util.List;
 
 import pepe.DAO.PublicacionDAO;
 
@@ -17,11 +18,22 @@ public class Publicacion {
 	private Integer id;
 
 	private PublicacionDAO publicacionDAO = new PublicacionDAO();
-	
+
 	public void createPublicacion() throws SQLException {
 		publicacionDAO.createPublicacion(this);
 	}
-	
+
+	public void removePublicacion() throws SQLException {
+		publicacionDAO.removePublicacion(this.id);
+	}
+
+	public void editPublicacion() throws SQLException {
+		publicacionDAO.editPublicacion(this);
+	}
+
+	public List<Publicacion> getPublicaciones() throws SQLException {
+		return publicacionDAO.getPublicaciones();
+	}
 
 	public String getTitulo() {
 		return titulo;
