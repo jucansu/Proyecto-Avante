@@ -1,4 +1,4 @@
-package application;
+package pepe.application;
 
 import javax.ws.rs.ApplicationPath;
 

@@ -1,4 +1,4 @@
-package connection;
+package pepe.connection;
 
 import java.io.IOException;
 import java.io.InputStream;

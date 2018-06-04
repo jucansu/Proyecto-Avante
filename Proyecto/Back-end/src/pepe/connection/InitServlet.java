@@ -1,4 +1,4 @@
-package connection;
+package pepe.connection;
 
 import java.io.IOException;
 import javax.servlet.ServletConfig;
@@ -6,7 +6,7 @@ import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 
-import connection.DatabaseConnectionFactory;
+import pepe.connection.DatabaseConnectionFactory;
 
 @WebServlet(value = "/initServlet", loadOnStartup = 1)
 public class InitServlet extends HttpServlet {
