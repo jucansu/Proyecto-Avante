@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Usuario } from '../../models/usuario';
+import { UserService } from '../../services/user.service';
 
 @Component({
   selector: 'app-login-page',
@@ -7,9 +9,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginPageComponent implements OnInit {
 
-  constructor() { }
+  constructor(private userService : UserService) { }
 
   ngOnInit() {
+  }
+
+  onSubmit(userForm){
+    var usuario = new Usuario(null, null, 
+    null, userForm.contraseña, userForm.email, null, null, null, null);
+    this.userService.login(usuario);
+    
   }
 
 }
