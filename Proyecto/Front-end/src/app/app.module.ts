@@ -8,6 +8,7 @@ import { ListadoComponent } from './components/listado/listado.component';
 import { LoginPageComponent } from './components/login-page/login-page.component';
 import { AppRoutingModule } from './app.routing';
 import { UserService } from './services/user.service';
+import { LocationStrategy, HashLocationStrategy } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { UserService } from './services/user.service';
     AppRoutingModule,
     FormsModule,
   ],
-  providers: [UserService],
-  bootstrap: [AppComponent]
+  providers: [{provide: LocationStrategy, useClass: HashLocationStrategy},
+    UserService],
+  bootstrap: [AppComponent,ListadoComponent]
 })
 export class AppModule { }
