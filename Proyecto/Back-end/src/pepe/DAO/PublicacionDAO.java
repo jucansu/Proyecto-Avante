@@ -15,30 +15,49 @@ public class PublicacionDAO {
 
 	public static void createPublicacion(Publicacion publicacion) throws SQLException {
 		// get connection from connection pool
+
 		Connection con = DatabaseConnectionFactory.getConnectionFactory().getConnection();
 		try {
-			final String sql = "insert into Publicacion (titulo,descripcion,etiqueta,fecha) values (?,?,?,?)";
-			// create the prepared statement with an option to get auto-generated keys
-			PreparedStatement stmt = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
-			// set parameters
-			stmt.setString(1, publicacion.getTitulo());
-			stmt.setString(2, publicacion.getDescripcion());
-			stmt.setString(3, publicacion.getEtiqueta());
-			stmt.setDate(4, publicacion.getFecha());
+			if (publicacion.getId() == 0) {
+				final String sql = "insert into Publicacion (titulo,descripcion,etiqueta,fecha,valoracion,id_usuario) values (?,?,?,?,?,?)";
+				// create the prepared statement with an option to get auto-generated keys
+				PreparedStatement stmt = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
+				// set parameters
+				stmt.setString(1, publicacion.getTitulo());
+				stmt.setString(2, publicacion.getDescripcion());
+				stmt.setString(3, publicacion.getEtiqueta());
+				stmt.setDate(4, publicacion.getFecha());
+				stmt.setInt(5, publicacion.getValoracion());
+				stmt.setInt(6, publicacion.getId_usuario());
 
-			stmt.execute();
+				stmt.execute();
 
-			// Get auto-generated keys
-			ResultSet rs = stmt.getGeneratedKeys();
+				// Get auto-generated keys
+				ResultSet rs = stmt.getGeneratedKeys();
 
-			if (rs.next())
-				publicacion.setId(rs.getInt(1));
+				if (rs.next())
+					publicacion.setId(rs.getInt(1));
 
-			rs.close();
-			stmt.close();
+				rs.close();
+				stmt.close();
+			} else {
+				final String sql = "update Publicacion set titulo='" + publicacion.getTitulo() +
+						"', descripcion='" + publicacion.getDescripcion() + 
+						"', etiqueta='" + publicacion.getEtiqueta() +
+						"', fecha='" + publicacion.getFecha() +
+						"', valoracion='" + publicacion.getValoracion() +
+						"', id_usuario='" + publicacion.getId_usuario() +
+						"' where id = " + publicacion.getId();
+				// create the prepared statement with an option to get auto-generated keys
+				PreparedStatement stmt = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
+				// set parameters
+				stmt.execute();
+				stmt.close();
+			}
 		} finally {
 			con.close();
 		}
+
 	}
 
 	public static void removePublicacion(int publicacionId) throws SQLException {
@@ -109,7 +128,6 @@ public class PublicacionDAO {
 				publi.setValoracion(rs.getInt("valoracion"));
 				publicacion.add(publi);
 
-				
 			}
 
 			return publicacion;

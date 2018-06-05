@@ -10,11 +10,14 @@ import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
 import pepe.DAO.PublicacionDAO;
+import pepe.DAO.UsuarioDAO;
 import pepe.model.Publicacion;
+import pepe.model.Usuario;
 
 @Path("/publicacion")
 public class PublicacionService {
@@ -35,28 +38,49 @@ public class PublicacionService {
 
 	}
 
-	@PUT
+	@POST
 	@Produces(MediaType.APPLICATION_JSON)
 	@Consumes(MediaType.APPLICATION_JSON)
-	@Path("create")
-	public void create(Publicacion p) {
+	@Path("post/")
+	public List<Publicacion> create(Publicacion p) {
+		List<Publicacion> res = new ArrayList<Publicacion>();
+		try {
+			res = new PublicacionDAO().getPublicaciones();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 		try {
 			PublicacionDAO.createPublicacion(p);
+			res = new PublicacionDAO().getPublicaciones();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
+		return res;
 	}
 
-	@DELETE
+	@GET
 	@Produces(MediaType.APPLICATION_JSON)
-	@Consumes(MediaType.APPLICATION_JSON)
-	@Path("delete")
-	public void delete(int publicacionId) {
+	@Path("delete/{publicacionId}")
+	public List<Publicacion> delete(@PathParam("publicacionId") int publicacionId) {
+		List<Publicacion> res = new ArrayList<Publicacion>();
 		try {
-			PublicacionDAO.removePublicacion(publicacionId);
+			res = new PublicacionDAO().getPublicaciones();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
+		if (res != null && !res.isEmpty()) {
+			for (Publicacion pub : res) {
+				if (publicacionId == pub.getId()) {
+					try {
+						PublicacionDAO.removePublicacion(pub.getId());
+						res = new PublicacionDAO().getPublicaciones();
+					} catch (SQLException e) {
+						e.printStackTrace();
+					}
+				}
+			}
+		}
+		return res;
 	}
 
 	@POST
