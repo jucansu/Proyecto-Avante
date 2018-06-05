@@ -20,7 +20,7 @@ import pepe.model.Publicacion;
 public class PublicacionService {
 
 	@GET
-	@Produces(MediaType.APPLICATION_XML)
+	@Produces(MediaType.APPLICATION_JSON)
 	@Path("get")
 	public List<Publicacion> listaComentarios() {
 		List<Publicacion> publicaciones = new ArrayList<Publicacion>();
