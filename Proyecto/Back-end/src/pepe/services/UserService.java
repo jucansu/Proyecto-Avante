@@ -8,8 +8,10 @@ import java.util.UUID;
 import javax.json.Json;
 import javax.json.JsonObject;
 import javax.ws.rs.Consumes;
+import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
@@ -18,6 +20,85 @@ import pepe.model.Usuario;
 
 @Path("/user")
 public class UserService {
+	
+	@GET
+	@Produces(MediaType.APPLICATION_JSON)
+	@Path("get/{userId}")
+	public Usuario getUser(@PathParam("userId") int id) {
+		Usuario res = new Usuario();
+		
+		try {
+			res = new UsuarioDAO().getUser(id);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		return res;
+	}
+	
+	@GET
+	@Produces(MediaType.APPLICATION_JSON)
+	@Path("list")
+	public List<Usuario> getUsers() {
+		List<Usuario> res = new ArrayList<Usuario>();
+		
+		try {
+			res = new UsuarioDAO().getUsers();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+
+		return res;
+	}
+	
+	@POST
+	@Produces(MediaType.APPLICATION_JSON)
+	@Consumes(MediaType.APPLICATION_JSON)
+	@Path("post/")
+	public List<Usuario> postUser(Usuario user) {
+		List<Usuario> res = new ArrayList<Usuario>();
+		try {
+			res = new UsuarioDAO().getUsers();
+		} catch (SQLException e1) {
+			e1.printStackTrace();
+		}
+		
+		try {
+			UsuarioDAO.addUser(user);
+			res = new UsuarioDAO().getUsers();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		return res;
+	}
+	
+	@GET
+	@Produces(MediaType.APPLICATION_JSON)
+	@Path("delete/{userId}")
+	public List<Usuario> deleteUser(@PathParam("userId") int id) {
+		List<Usuario> list = new ArrayList<Usuario>();
+		try {
+			list = new UsuarioDAO().getUsers();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		if(list != null && !list.isEmpty()) {
+			for(Usuario user : list) {
+				if(id == user.getId()) {
+					try {
+						UsuarioDAO.removeCourse(user);
+						list = new UsuarioDAO().getUsers();
+					} catch (SQLException e) {
+						e.printStackTrace();
+					}
+				}
+			}
+		}
+		
+		return list;
+	}
 	
 	@POST
 	@Produces(MediaType.APPLICATION_JSON)
