@@ -118,5 +118,58 @@ public class UsuarioDAO {
 			}
 		}
 	}
+	
+//	public static void addUser(Usuario user) throws SQLException {
+//		// get connection from connection pool
+//		Connection con = DatabaseConnectionFactory.getConnectionFactory().getConnection();
+//		try {
+//			if (user.getId() == 0) {
+//				final String sql = "insert into Course (name, credits) values (?,?)";
+//				// create the prepared statement with an option to get auto-generated keys
+//				PreparedStatement stmt = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
+//				// set parameters
+//				stmt.setString(1, course.getName());
+//				stmt.setInt(2, course.getCredits());
+//
+//				stmt.execute();
+//
+//				// Get auto-generated keys
+//				ResultSet rs = stmt.getGeneratedKeys();
+//
+//				if (rs.next()) 
+//					course.setId(rs.getInt(1));
+//				
+//
+//				rs.close();
+//				stmt.close();
+//			} else {
+//				final String sql = "update Course set name='" + course.getName() +
+//						"', credits='" + course.getCredits() + "' where id = " + course.getId();
+//				// create the prepared statement with an option to get auto-generated keys
+//				PreparedStatement stmt = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
+//				// set parameters
+//				stmt.execute();
+//				stmt.close();
+//			}
+//		} finally {
+//			con.close();
+//		}
+//	}
+//
+//	public static void removeCourse(Course course) throws SQLException {
+//		// get connection from connection pool
+//		Connection con = DatabaseConnectionFactory.getConnectionFactory().getConnection();
+//		try {
+//			final String sql = "DELETE FROM Course WHERE id = ?";
+//			// create the prepared statement with an option to get auto-generated keys
+//			PreparedStatement stmt = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
+//			// set parameters
+//			stmt.setString(1, new Integer(course.getId()).toString());
+//			stmt.execute();
+//			stmt.close();
+//		} finally {
+//			con.close();
+//		}
+//	}
 
 }
