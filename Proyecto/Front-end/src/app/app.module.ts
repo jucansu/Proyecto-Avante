@@ -3,19 +3,25 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms'
 
 import { AppComponent } from './app.component';
-import { FrontEndComponent } from './components/front-end/front-end.component';
-import { ListadoComponent } from './components/listado/listado.component';
 import { LoginPageComponent } from './components/login-page/login-page.component';
 import { AppRoutingModule } from './app.routing';
 import { UserService } from './services/user.service';
 import { LocationStrategy, HashLocationStrategy } from '@angular/common';
+import { ProfileComponent } from './components/profile/profile.component';
+import { RegisterComponent } from './components/register/register.component';
+import { HomeComponent } from './components/home/home.component';
+import { CreacionPublicacionComponent } from './components/creacion-publicacion/creacion-publicacion.component';
+import { ListadoPublicacionComponent } from './components/listado-publicacion/listado-publicacion.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    FrontEndComponent,
-    ListadoComponent,
-    LoginPageComponent
+    HomeComponent,
+    CreacionPublicacionComponent,
+    ListadoPublicacionComponent,
+    LoginPageComponent,
+    ProfileComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
@@ -24,6 +30,6 @@ import { LocationStrategy, HashLocationStrategy } from '@angular/common';
   ],
   providers: [{provide: LocationStrategy, useClass: HashLocationStrategy},
     UserService],
-  bootstrap: [AppComponent,ListadoComponent]
+  bootstrap: [AppComponent]
 })
 export class AppModule { }

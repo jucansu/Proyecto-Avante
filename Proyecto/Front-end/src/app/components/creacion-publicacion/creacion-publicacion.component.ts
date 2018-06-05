@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-listado',
-  templateUrl: './listado.component.html',
-  styleUrls: ['./listado.component.css']
+  selector: 'creacion-publicacion',
+  templateUrl: './creacion-publicacion.component.html',
+  styleUrls: ['./creacion-publicacion.component.css']
 })
-export class ListadoComponent implements OnInit {
+export class CreacionPublicacionComponent implements OnInit {
 
   titulo : string;
   descripcion: string;

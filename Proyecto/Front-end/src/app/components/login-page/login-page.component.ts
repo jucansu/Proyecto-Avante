@@ -17,7 +17,7 @@ export class LoginPageComponent implements OnInit {
   onSubmit(userForm){
     var usuario = new Usuario(null, null, 
     null, userForm.contraseña, userForm.email, null, null, null, null);
-    this.userService.login(usuario);
+    //this.userService.login(usuario);
     
   }
 

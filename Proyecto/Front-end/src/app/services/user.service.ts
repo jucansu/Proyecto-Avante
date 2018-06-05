@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 })
 export class UserService {
 
-  constructor(pri) { }
+  constructor() { }
   
   login(user : Usuario) : Observable<string>{
       // return this.http.post<Usuario>('/services/', user);
