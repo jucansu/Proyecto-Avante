@@ -4,6 +4,8 @@ public class Usuario extends Persona{
 	
 	private String mensajeBaneo;
 	private Estado estado;
+	// El token no se almacena en BD
+	private String token;
 
 	public Usuario() {
 		super();
@@ -23,6 +25,14 @@ public class Usuario extends Persona{
 
 	public void setEstado(Estado estado) {
 		this.estado = estado;
+	}
+
+	public String getToken() {
+		return token;
+	}
+
+	public void setToken(String token) {
+		this.token = token;
 	}
 
 	
