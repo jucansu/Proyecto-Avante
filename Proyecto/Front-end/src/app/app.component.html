@@ -27,13 +27,14 @@
                             </a>
                           </li>
                           <li class="nav-item">
-                            <a class="nav-link" href="#">About</a>
+                            
+                            <a class="nav-link" [routerLink]="['/register']">Registro</a>
                           </li>
                           <li class="nav-item">
-                            <a class="nav-link" href="#">Services</a>
+                            <a class="nav-link" [routerLink]="['/post']">Crear un comentario</a>
                           </li>
                           <li class="nav-item">
-                            <a class="nav-link" href="#">Contact</a>
+                            <a class="nav-link" [routerLink]="['/profile']">Mi perfil</a>
                           </li>
                         </ul>
                       </div>
@@ -48,8 +49,8 @@
             <a title="publicidad" href="http://www.lostejos.com"><img src="../assets/images/banner_vertical.jpg" alt="publicidad" /></a>
         </div>
         <div class=" col-10 router">
+          
             <router-outlet></router-outlet>
-            <h2><a target="_blank" rel="noopener" [routerLink]="['/listado']">PROBAMOS LA LISTA</a></h2>
         </div>
     </div>
     </div>
