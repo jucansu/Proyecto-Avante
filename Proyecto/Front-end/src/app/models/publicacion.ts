@@ -6,7 +6,7 @@ export class Publicacion {
         public titulo: string,
         public descripcion: string,
         public etiquetas: string,
-        public fecha: string,
+        public fecha: Date,
         public valoracion: number,
         public usuario : Usuario
     ) { }

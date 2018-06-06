@@ -129,7 +129,7 @@ INSERT INTO `configuracion` (`longitud_titulo`, `longitud_mensaje`) VALUES
 --
 
 CREATE TABLE IF NOT EXISTS `publicacion` (
-  `titulo` int(11) NOT NULL,
+  `titulo` varchar(50) NOT NULL,
   `descripcion` varchar(2000) NOT NULL,
   `etiqueta` varchar(200) NOT NULL,
   `fecha` date NOT NULL,
@@ -145,14 +145,14 @@ CREATE TABLE IF NOT EXISTS `publicacion` (
 --
 
 INSERT INTO `publicacion` (`titulo`, `descripcion`, `etiqueta`, `fecha`, `valoracion`, `id_usuario`, `id`) VALUES
-(0, 'Esta es la publicacion 1', 'Vamos-buenaPublicacion', '2025-05-18', 2, 2, 6),
-(0, 'Esta es la publicacion 2', 'laMejor', '2002-05-18', 3, 2, 7),
-(0, 'Esta es la publicacion 3', 'Fiesta-cerveza', '2025-05-19', 1, 3, 8),
-(0, 'Esta es la publicacion 4', 'vamos', '2025-05-18', 2, 4, 9),
-(0, 'Esta es la publicacion 5', 'Cosas-masCosas', '2025-06-18', 0, 4, 10),
-(0, 'Esta es la publicacion 6', 'masCosas', '2022-02-18', 5, 4, 11),
-(0, 'Esta es la publicacion 7', 'buenaPublicacion', '2012-11-18', 2, 5, 12),
-(0, 'Esta es la publicacion 8', 'bu ', '2002-05-18', 3, 5, 13);
+('Lorem ipsum dolor sit amet consectetur', 'Adipiscing elit mus erat, lacinia sed mollis a. Tristique nam cursus dui nullam lacus imperdiet dapibus metus tortor laoreet, mi netus interdum penatibus montes habitant egestas porttitor tincidunt libero, non augue ornare sagittis volutpat eget ante cum euismod. At risus tempus nam egestas purus accumsan nullam eleifend posuere, leo dui ridiculus dictumst sed justo orci interdum viverra, eros donec elementum placerat curabitur cubilia duis vitae.', 'Vamos-buenaPublicacion', '2025-05-18', 2, 2, 6),
+('Nullam scelerisque congue ad euismod volutpat', 'taciti duis cras vehicula id accumsan magnis suscipit, auctor donec per tempus egestas ultrices mollis posuere. Diam habitasse duis facilisi nam himenaeos in conubia praesent nostra consequat, integer ante fringilla natoque habitant risus hac hendrerit porttitor lacinia euismod, aliquam taciti montes eleifend netus fermentum tortor morbi pulvinar. Quisque scelerisque per dictum torquent montes nam condimentum pellentesque ultricies neque viverra, cras feugiat ad semper cum primis integer non cubilia sodales, cursus sollicitudin eros elementum fringilla class rhoncus urna ac netus.', 'laMejor', '2002-05-18', 3, 2, 7),
+('XCOM 2 y Trials Fusion son tus juegos de PlayStation Plus para junio', 'Hola a todos! El verano, esa época de tardes largas de relax, comidas fuera de casa y vacaciones familiares bajo el sol, está a la vuelta de la esquina. Esperamos que tengas grandes planes para los próximos meses y que, mientras disfrutas del bueno tiempo, no te olvides de tu querida PlayStation. Cuando llueva (que seguro que pasa) o se ponga el sol (algo inevitable), necesitarás un amigo con algo de encanto ‘interior’ para entretenerte. Por suerte, estaremos contigo todo el verano, ofreciéndote grandes juegos cada mes con PlayStation Plus, así que, llueva o brille el sol, ¡puedes contar con nosotros!', 'Fiesta-cerveza', '2025-05-19', 1, 3, 8),
+('La cuenta atrás de PlayStation para E3 2018 empieza el miércoles 6 de junio', 'Atención, llega otra vez el E3! PlayStation tiene montones de novedades que anunciar. Tantas, de hecho, que empezaremos un poco antes. El plato principal será la PlayStation E3 2018 Showcase, que empezará la madrugada del martes 12 de junio a las 3 h CEST. Míralo en directo en playstation.com/e3.', 'vamos', '2025-05-18', 2, 4, 9),
+('Lorem ipsum dolor sit amet consectetur', 'Esta es la publicacion 5', 'Cosas-masCosas', '2025-06-18', 0, 4, 10),
+('Lorem ipsum dolor sit amet consectetur', 'Esta es la publicacion 6', 'masCosas', '2022-02-18', 5, 4, 11),
+('Lorem ipsum dolor sit amet consectetur', 'Esta es la publicacion 7', 'buenaPublicacion', '2012-11-18', 2, 5, 12),
+('Lorem ipsum dolor sit amet consectetur', 'Esta es la publicacion 8', 'bu ', '2002-05-18', 3, 5, 13);
 
 -- --------------------------------------------------------
 
