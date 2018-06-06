@@ -24,7 +24,7 @@ public class PublicacionService {
 
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
-	@Path("get")
+	@Path("list")
 	public List<Publicacion> listaComentarios() {
 		List<Publicacion> publicaciones = new ArrayList<Publicacion>();
 		PublicacionDAO dao = new PublicacionDAO();
@@ -36,6 +36,21 @@ public class PublicacionService {
 
 		return publicaciones;
 
+	}
+	
+	@GET
+	@Produces(MediaType.APPLICATION_JSON)
+	@Path("get/{publicacionId}")
+	public Publicacion getPublicacion(@PathParam("publicacionId") int id) {
+		Publicacion res = new Publicacion();
+		
+		try {
+			res = new PublicacionDAO().getPublicacion(id);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		return res;
 	}
 
 	@POST
