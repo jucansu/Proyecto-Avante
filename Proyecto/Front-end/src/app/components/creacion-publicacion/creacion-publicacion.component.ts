@@ -3,6 +3,7 @@ import { Publicacion } from '../../models/publicacion';
 import { PublicacionService } from '../../services/publicacion.service';
 import { UserService } from '../../services/user.service';
 import { Usuario } from '../../models/usuario';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'creacion-publicacion',
@@ -11,18 +12,19 @@ import { Usuario } from '../../models/usuario';
 })
 export class CreacionPublicacionComponent implements OnInit {
 
-  constructor(private publicacionService : PublicacionService) { }
+  constructor(private publicacionService : PublicacionService,
+    private router : Router) { }
 
   ngOnInit() {
   }
 
   onSubmit(publicacionForm){
-    console.log("asd", publicacionForm);
-        
     var publicacion = new Publicacion(0, publicacionForm.titulo, 
-      publicacionForm.descripcion, publicacionForm.etiquetas, new Date(), 0, new Usuario());
+      publicacionForm.descripcion, publicacionForm.etiqueta, new Date(), 0, 2);
     this.publicacionService.post(publicacion).subscribe(publicacion => {
-     
+      if(publicacion.id && publicacion.id != 0){
+        this.router.navigate(["/detalle/"+publicacion.id]);
+      }
     });
   }
 

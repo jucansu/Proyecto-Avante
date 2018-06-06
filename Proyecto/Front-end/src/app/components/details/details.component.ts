@@ -1,4 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { Publicacion } from '../../models/publicacion';
+import { PublicacionService } from '../../services/publicacion.service';
+import { Router, ActivatedRoute } from '@angular/router';
+import { UserService } from '../../services/user.service';
+import { Usuario } from '../../models/usuario';
 
 @Component({
   selector: 'app-details',
@@ -7,9 +12,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DetailsComponent implements OnInit {
 
-  constructor() { }
+  private publicacion : Publicacion;
+  private usuario : Usuario;
+
+  constructor(private publicacionService : PublicacionService,
+    private userService : UserService,
+    private route : ActivatedRoute) { }
 
   ngOnInit() {
+    this.route.params.subscribe(params => {
+      var id = +params['id'];
+      this.publicacionService.get(id).subscribe(pub => {
+        this.publicacion = pub;
+        this.userService.getUser(this.publicacion.id_usuario).subscribe(user =>{
+          this.usuario = user;
+        });
+      });
+    });
   }
 
 }
