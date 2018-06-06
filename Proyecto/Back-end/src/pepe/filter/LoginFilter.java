@@ -25,13 +25,12 @@ public class LoginFilter implements Filter {
 			throws IOException, ServletException {
 		HttpServletRequest request = (HttpServletRequest) servletRequest;
 		HttpServletResponse response = (HttpServletResponse) servletResponse;
-		Enumeration<String> aa = request.getHeaderNames();
 		String token = request.getHeader("Authorization");
 		token = token == null || token.isEmpty()? "" : token.substring(36, token.length()-36);
 		int id = 0;
 		try {
 			id = Integer.parseInt(token);
-			Boolean isValid = true;//id == servletRequest.; //comprobar si el token es valido
+			Boolean isValid = true;//id == servletRequest.; //TODO comprobar si el token es valido
 			
 			if(!isValid) {
 				response.sendError(HttpServletResponse.SC_UNAUTHORIZED);
