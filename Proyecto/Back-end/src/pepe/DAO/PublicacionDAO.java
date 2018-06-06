@@ -9,10 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import pepe.connection.DatabaseConnectionFactory;
-import pepe.model.Estado;
 import pepe.model.Publicacion;
-import pepe.model.Rol;
-import pepe.model.Usuario;
 
 public class PublicacionDAO {
 
@@ -113,8 +110,7 @@ public class PublicacionDAO {
 			// create SQL statement using left outer join
 			StringBuilder sb = new StringBuilder("select Publicacion.id as id, Publicacion.titulo as titulo,").append(
 					"Publicacion.descripcion as descripcion, Publicacion.etiqueta as etiqueta, Publicacion.fecha as fecha, Publicacion.valoracion as valoracion, Publicacion.id_usuario as id_usuario ")
-					.append("from Publicacion left outer join Usuario on ")
-					.append("Publicacion.id_usuario = Usuario.id");
+					.append("from Publicacion order by Publicacion.fecha desc");
 
 			// execute the query
 			rs = stmt.executeQuery(sb.toString());
@@ -129,6 +125,7 @@ public class PublicacionDAO {
 				publi.setEtiqueta(rs.getString("etiqueta"));
 				publi.setFecha(rs.getDate("fecha"));
 				publi.setValoracion(rs.getInt("valoracion"));
+				publi.setId_usuario(rs.getInt("id_usuario"));
 				publicacion.add(publi);
 
 			}

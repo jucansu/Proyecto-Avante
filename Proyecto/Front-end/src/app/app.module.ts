@@ -7,7 +7,6 @@ import { AppComponent } from './app.component';
 import { LoginPageComponent } from './components/login-page/login-page.component';
 import { AppRoutingModule } from './app.routing';
 import { UserService } from './services/user.service';
-import { LocationStrategy, HashLocationStrategy } from '@angular/common';
 import { ProfileComponent } from './components/profile/profile.component';
 import { RegisterComponent } from './components/register/register.component';
 import { HomeComponent } from './components/home/home.component';

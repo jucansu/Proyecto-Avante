@@ -11,7 +11,7 @@ export class HomeComponent implements OnInit {
 
   constructor(private publicacionService: PublicacionService) { }
 
-  ngOnInit() {
+  ngOnInit() {    
     this.publicacionService.getList().subscribe(lista =>{
       this.listaPublicacion=lista;
     });

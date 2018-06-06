@@ -15,6 +15,10 @@ export class UserService {
   
   login(user : Usuario) : Observable<Usuario>{
       return this.http.post<Usuario>(this.staticUrl + 'login', user);
-    }
+  }
+
+  getUser(userId : number) : Observable<Usuario>{
+    return this.http.get<Usuario>(this.staticUrl + 'get/' + userId);
+  }
 
 }

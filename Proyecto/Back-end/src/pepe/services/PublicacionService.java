@@ -5,19 +5,15 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.ws.rs.Consumes;
-import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
-import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
 import pepe.DAO.PublicacionDAO;
-import pepe.DAO.UsuarioDAO;
 import pepe.model.Publicacion;
-import pepe.model.Usuario;
 
 @Path("/publicacion")
 public class PublicacionService {
@@ -57,16 +53,16 @@ public class PublicacionService {
 	@Produces(MediaType.APPLICATION_JSON)
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Path("post/")
-	public List<Publicacion> create(Publicacion p) {
-		List<Publicacion> res = new ArrayList<Publicacion>();
-		try {
-			res = new PublicacionDAO().getPublicaciones();
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
+	public Publicacion create(Publicacion p) {
+		List<Publicacion> publicaciones = new ArrayList<Publicacion>();
+		Publicacion res = new Publicacion();
 		try {
 			PublicacionDAO.createPublicacion(p);
-			res = new PublicacionDAO().getPublicaciones();
+			publicaciones = new PublicacionDAO().getPublicaciones();
+			for(Publicacion pub : publicaciones)
+			if(pub.getId() == p.getId()) {
+				res = pub;
+			}
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
