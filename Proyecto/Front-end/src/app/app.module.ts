@@ -15,6 +15,7 @@ import { CreacionPublicacionComponent } from './components/creacion-publicacion/
 import { ListadoPublicacionComponent } from './components/listado-publicacion/listado-publicacion.component';
 import { AuthInterceptor } from './interceptors/auth.interceptor';
 
+
 @NgModule({
   declarations: [
     AppComponent,

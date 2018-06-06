@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { PublicacionService } from '../../services/publicacion.service';
 
 @Component({
   selector: 'app-listado-publicacion',
@@ -7,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ListadoPublicacionComponent implements OnInit {
 
-  constructor() { }
+  constructor(private publicacionService: PublicacionService) { }
 
   ngOnInit() {
   }
