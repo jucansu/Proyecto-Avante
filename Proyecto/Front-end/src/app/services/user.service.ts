@@ -1,17 +1,20 @@
 import { Injectable } from '@angular/core';
 import { Usuario } from '../models/usuario';
 import { Observable } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
+import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
 
-  constructor() { }
+  constructor(private http : HttpClient) { }
+
+  staticUrl:String = environment.baseApi + '/user/';
   
-  login(user : Usuario) : Observable<string>{
-      // return this.http.post<Usuario>('/services/', user);
-      return null;
+  login(user : Usuario) : Observable<Usuario>{
+      return this.http.post<Usuario>(this.staticUrl + 'login', user);
     }
 
 }
