@@ -1,102 +1,166 @@
+<header>
+  <div class="container-fluid business-header">
+    <div class="row">
+      <div class="col-lg-12">
 
-        <header>
-                <div class="container-fluid business-header">
-                  <div class="row">
-                    <div class="col-lg-12">
-                      
-                    </div>
-                  </div>
-                </div>
-              </header>
-              <!--  <div class= "row logo text-center">
+      </div>
+    </div>
+  </div>
+</header>
+<!--  <div class= "row logo text-center">
         <img class="mx-auto d-block" src="../assets/images/logo2.png" />
     </div>-->
 
-          <nav class="navbar navbar-expand-lg bg-dark navbar-dark sticky-top">
-          <!--<nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">-->
-                    
-              <a class="navbar-brand" href="#">PepeBlog</a>
-              <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-              </button>
-              <div class="collapse navbar-collapse" id="navbarResponsive">
-                <ul class="navbar-nav ml-auto">
-                  <li class="nav-item active">
-                    <a class="nav-link" href="#">Home
-                      <span class="sr-only">(current)</span>
-                    </a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" [routerLink]="['/register']">Registro</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" [routerLink]="['/post']">Crear un comentario</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" [routerLink]="['/profile']">Mi perfil</a>
-                  </li>
-                </ul>
+<nav class="navbar navbar-expand-lg bg-dark navbar-dark sticky-top">
+  <!--<nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">-->
+
+  <a class="navbar-brand" href="#">PepeBlog</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive"
+    aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarResponsive">
+    <ul class="navbar-nav ml-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="#">Home
+          <span class="sr-only">(current)</span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" [routerLink]="['/register']">Registro</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" [routerLink]="['/post']">Crear un comentario</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" [routerLink]="['/profile']">Mi perfil</a>
+      </li>
+    </ul>
 
 
-                <ul class="navbar-nav ml-auto">
-                  <li class="nav-item">  
-                    <a class="nav-link text-right" [routerLink]="['/register']" data-toggle="modal" data-target="#registroModal">Registrate</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" [routerLink]="['/post']" data-toggle="modal" data-target="#loginModal">Login</a>
-                  </li>
-                </ul>
-              </div>           
-    </nav>               
-   
-    <br>
-    <div class=container>
-    <div class="row contexto">
-        <div class=" col-12 router">
-            <router-outlet></router-outlet>
-        </div>
-        <div class=" col-12 anuncio text-center">
-          <a title="publicidad" href="http://www.lostejos.com"><img src="../assets/images/banner-publi.jpg" alt="publicidad" /></a>
+    <ul class="navbar-nav ml-auto">
+      <li class="nav-item">
+        <a class="nav-link text-right" [routerLink]="['/register']" data-toggle="modal" data-target="#registroModal">Registrate</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" [routerLink]="['/post']" data-toggle="modal" data-target="#loginModal">Login</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<br>
+<div class=container>
+  <div class="row contexto">
+    <div class=" col-12 router">
+      <router-outlet></router-outlet>
+    </div>
+    <div class=" col-12 anuncio text-center">
+      <a title="publicidad" href="http://www.lostejos.com">
+        <img src="../assets/images/banner-publi.jpg" alt="publicidad" />
+      </a>
+    </div>
+  </div>
+</div>
+<br>
+<footer>
+  <div class="container-fluid">
+    <div class="row footer">
+      <div class="col-lg-12"></div>
+      <p></p>
+    </div>
+  </div>
+</footer>
+
+
+<!--Modales para el registro y el logín-->
+
+<!-- The Modal of Register-->
+<div class="modal fade" id="registroModal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="modal-title">¡Registrate!</h4>
+
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+
+      <!-- Modal body -->
+      <div class="modal-body">
+        <form class="text-center" action="/action_page.php">
+          <div class="form-group text-center">
+              <p><img src="../assets/images/perfil.png" alt="perfil"></p>
+              Avatar: <input type="file" class="form-control-file border">
+            </div>
+          <div class="form-group text-center">
+            <label for="nombre">Nombre:</label>
+            <input type="text" class="form-control" id="email">
+          </div>
+          <div class="form-group text-center">
+              <label for="apellido">Apellidos:</label>
+              <input type="text" class="form-control" id="email">
+            </div>
+            <div class="form-group text-center">
+                <label for="email">Dirección de Correo Electronico :</label>
+                <input type="email" class="form-control" id="email">
+              </div>
+          <div class="form-group text-center">
+            <label for="pwd">Contraseña:</label>
+            <input type="password" class="form-control" id="pwd">
+          </div>
+          <div class="form-group form-check text-center">
+            <label class="form-check-label">
+              <input class="form-check-input" type="checkbox"> Remember me
+            </label>
+          </div>
+          <hr>
+          <button type="submit" class="btn btn-primary btn-block ">Registrate</button>
+        </form>
+
       </div>
     </div>
     </div>
-    <br>
-    <footer>
-    <div class="container-fluid">
-    <div class="row footer">
-        <div class="col-lg-12"></div>
-        <p></p>
     </div>
-    </div>
-    </footer>
 
-
-    <!--Modales para el registro y el logín-->
-
-    <!-- The Modal of Register-->
-<div class="modal fade" id="registroModal">
-    <div class="modal-dialog">
-      <div class="modal-content">
+      <!-- The Modal of Login-->
+<div class="modal fade" id="loginModal">
+    <div class="modal-dialog ">
+      <div class="modal-content ">
   
         <!-- Modal Header -->
-        <div class="modal-header ">
-          <h4 class="modal-title ">¡Registrate!</h4>
+        <div class="modal-header">
+          <h2 class="modal-title">Login</h2>
           <button type="button" class="close" data-dismiss="modal">&times;</button>
         </div>
   
         <!-- Modal body -->
         <div class="modal-body">
-          
+          <form class="text-center" action="/action_page.php">
+              <div class="form-group text-center">
+                  <label for="email">Dirección de Correo Electronico:</label>
+                  <input type="email" class="form-control" id="email">
+                </div>
+            <div class="form-group text-center">
+              <label for="pwd">Contraseña:</label>
+              <input type="password" class="form-control" id="pwd">
+            </div>
+            <div class="form-group form-check text-center">
+              <label class="form-check-label">
+                <input class="form-check-input" type="checkbox"> Remember me
+              </label>
+            </div>
+            <hr>
+            <button type="submit" class="btn btn-primary btn-block ">Login</button>
+          </form>
+  
         </div>
   
-        <!-- Modal footer -->
-        <div class="modal-footer">
-          <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-        </div>
-  
-      </div>
+
+   
+
+      
+
     </div>
   </div>
-
-
-

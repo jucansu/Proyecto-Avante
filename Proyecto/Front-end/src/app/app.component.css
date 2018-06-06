@@ -25,8 +25,8 @@
  }
 
  .business-header {
-    height: 50vh;
-    min-height: 300px;
+    height: 5vh;
+    min-height: 200px;
     background: url('../assets/images/fondo2.jpg') center center no-repeat scroll;
     -webkit-background-size: cover;
     -moz-background-size: cover;
