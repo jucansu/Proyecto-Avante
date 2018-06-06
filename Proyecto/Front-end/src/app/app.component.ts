@@ -6,5 +6,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'app';
+  private isLogged : boolean;
+  //EndPoint que diga si estoy loggeada
 }
