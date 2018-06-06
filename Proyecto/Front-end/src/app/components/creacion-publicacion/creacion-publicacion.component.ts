@@ -16,7 +16,9 @@ export class CreacionPublicacionComponent implements OnInit {
   ngOnInit() {
   }
 
-  onSubmit(publicacionForm){    
+  onSubmit(publicacionForm){
+    console.log("asd", publicacionForm);
+        
     var publicacion = new Publicacion(0, publicacionForm.titulo, 
       publicacionForm.descripcion, publicacionForm.etiquetas, new Date(), 0, new Usuario());
     this.publicacionService.post(publicacion).subscribe(publicacion => {
