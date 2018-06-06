@@ -9,7 +9,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 import pepe.connection.DatabaseConnectionFactory;
+import pepe.model.Estado;
 import pepe.model.Publicacion;
+import pepe.model.Rol;
+import pepe.model.Usuario;
 
 public class PublicacionDAO {
 
@@ -131,6 +134,51 @@ public class PublicacionDAO {
 			}
 
 			return publicacion;
+		} finally {
+			try {
+				if (rs != null)
+					rs.close();
+			} catch (SQLException e) {
+			}
+			try {
+				if (stmt != null)
+					stmt.close();
+			} catch (SQLException e) {
+			}
+			try {
+				con.close();
+			} catch (SQLException e) {
+			}
+		}
+	}
+	
+	public Publicacion getPublicacion(int id) throws SQLException {
+		// get connection from connection pool
+		Connection con = DatabaseConnectionFactory.getConnectionFactory().getConnection();
+
+		Statement stmt = null;
+		ResultSet rs = null;
+		try {
+			stmt = con.createStatement();
+
+			// create SQL statement using left outer join
+			StringBuilder sb = new StringBuilder("select * from Publicacion where id=" + id);
+
+			// execute the query
+			rs = stmt.executeQuery(sb.toString());
+			Publicacion post = new Publicacion();
+			if (rs.next()) {
+				post.setId(id);
+				post.setTitulo(rs.getString(1));
+				post.setDescripcion(rs.getString(2));
+				post.setEtiqueta(rs.getString(3));
+				post.setFecha(rs.getDate(4));
+				post.setValoracion(rs.getInt(5));
+				post.setId_usuario(rs.getInt(6));
+			}
+
+			return post;
+			
 		} finally {
 			try {
 				if (rs != null)

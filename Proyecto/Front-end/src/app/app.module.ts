@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms'
+import {HttpClientModule} from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { LoginPageComponent } from './components/login-page/login-page.component';
@@ -12,6 +13,7 @@ import { RegisterComponent } from './components/register/register.component';
 import { HomeComponent } from './components/home/home.component';
 import { CreacionPublicacionComponent } from './components/creacion-publicacion/creacion-publicacion.component';
 import { ListadoPublicacionComponent } from './components/listado-publicacion/listado-publicacion.component';
+import { AuthInterceptor } from './interceptors/auth.interceptor';
 
 @NgModule({
   declarations: [
@@ -27,9 +29,9 @@ import { ListadoPublicacionComponent } from './components/listado-publicacion/li
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+    HttpClientModule
   ],
-  providers: [{provide: LocationStrategy, useClass: HashLocationStrategy},
-    UserService],
+  providers: [UserService,AuthInterceptor],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
