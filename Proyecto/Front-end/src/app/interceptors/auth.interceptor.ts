@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import {catchError} from "rxjs/internal/operators";
 import {
   HttpRequest,
   HttpHandler,
@@ -7,23 +8,28 @@ import {
   HttpErrorResponse,
   HttpResponse
 } from '@angular/common/http';
-import { Observable } from 'rxjs';
-import 'rxjs/add/operator/catch';
+import { Observable, throwError } from 'rxjs';
 
 @Injectable()
 export class AuthInterceptor implements HttpInterceptor {
   constructor() {}
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-    let token = ""; //leo de la cookie el token
+    let cookies : String[] = document.cookie.split(";");
+    let token : string = "";
+    for(let cookie of cookies){
+      if(cookie.includes("pepe_login")){
+        token = cookie.substring(11);
+        console.log("token aas",token);
+      }
+    }
     const authReq = request.clone({
       setHeaders: {
-        Authorization: `Bearer ` +token
+        Authorization: token
       }
     });
-    return next.handle(authReq)
-    //   .catch(err => { 
-    //     console.log('Caught error', err);
-    //     return Observable.throw(err);
-    //   });
+    return next.handle(authReq).pipe(
+      catchError(err => err.code === 401 
+        ? throwError("Unauthorized operation")
+        : throwError(err)));
   }
 }
