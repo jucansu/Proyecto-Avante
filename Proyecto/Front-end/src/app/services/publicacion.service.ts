@@ -25,7 +25,7 @@ export class PublicacionService {
     return this.http.get<Publicacion>(this.staticUrl + 'get/'+publicacionId);
   }
 
-  post(publicacion : Publicacion) : Observable<Publicacion>{
+  post(publicacion : Publicacion) : Observable<Publicacion>{    
     return this.http.post<Publicacion>(this.staticUrl + 'post', publicacion);
   }
 
