@@ -1,9 +1,12 @@
 <div class="container">
-    <h1 class="d-flex justify-content-start">{{publicacion.titulo}}</h1>
+    <div>
+        <span class="mr-3 mb-3" style="font-size: 30pt">{{publicacion.titulo}}</span>
+        <span class="text-secondary">{{publicacion.fecha | date:'dd/MM/yyyy'}}</span>
+    </div>
     <article><p>
         {{publicacion.descripcion}} 
     </p></article>
     <div class="d-flex justify-content-end m-5">
-             <span class="blockquote-footer ml-2"><img class="rounded-circle" src="{{usuario.avatar}}" alt="Generic placeholder image" width="30" height="30"> {{usuario.nombre}} {{usuario.apellidos}}</span> 
+        <span class="blockquote-footer ml-2"><img class="rounded-circle" src="{{usuario.avatar}}" alt="Generic placeholder image" width="30" height="30"> {{usuario.nombre}} {{usuario.apellidos}}</span> 
     </div>
 </div>
