@@ -14,6 +14,8 @@ import { CreacionPublicacionComponent } from './components/creacion-publicacion/
 import { ListadoPublicacionComponent } from './components/listado-publicacion/listado-publicacion.component';
 import { DetailsComponent } from './components/details/details.component';
 
+import { FroalaEditorModule, FroalaViewModule } from 'angular-froala-wysiwyg';
+
 
 @NgModule({
   declarations: [
@@ -27,6 +29,8 @@ import { DetailsComponent } from './components/details/details.component';
     DetailsComponent
   ],
   imports: [
+    FroalaEditorModule.forRoot(), 
+    FroalaViewModule.forRoot(),
     BrowserModule,
     AppRoutingModule,
     FormsModule,
