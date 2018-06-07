@@ -3,7 +3,7 @@
         <span class="mr-3 mb-3" style="font-size: 30pt">{{publicacion.titulo}}</span>
         <span class="text-secondary">{{publicacion.fecha | date:'dd/MM/yyyy'}}</span>
     </div>
-    <article><p>
+    <article [froalaView]="textoFroala"><p>
         {{publicacion.descripcion}} 
     </p></article>
     <div class="d-flex justify-content-end m-5">
