@@ -1,6 +1,7 @@
 package pepe.filter;
 
 import java.io.IOException;
+import java.util.Enumeration;
 
 import javax.servlet.Filter;
 import javax.servlet.FilterChain;
@@ -25,14 +26,22 @@ public class LoginFilter implements Filter {
 		HttpServletRequest request = (HttpServletRequest) servletRequest;
 		HttpServletResponse response = (HttpServletResponse) servletResponse;
 		String token = request.getHeader("Authorization");
-		
-		Boolean isValid = true; //comprobar si el token es valido
-		
-		if(!isValid) {
+		token = token == null || token.isEmpty()? "" : token.substring(36, token.length()-36);
+		int id = 0;
+		try {
+			id = Integer.parseInt(token);
+			Boolean isValid = true;//id == servletRequest.; //TODO comprobar si el token es valido
+			
+			if(!isValid) {
+				response.sendError(HttpServletResponse.SC_UNAUTHORIZED);
+				return;
+			}
+		} catch (Exception err) {
 			response.sendError(HttpServletResponse.SC_UNAUTHORIZED);
+			return;
 		}
+		
 		chain.doFilter(request, servletResponse);
-        
         
     }
 

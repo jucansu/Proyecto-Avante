@@ -1,19 +1,20 @@
-<div class="container-fluid">
-  <h2 class="row d-flex justify-content-center ">Log-in</h2>
-  <div class="row d-flex justify-content-center m-5">
-    <div *ngIf="error != undefined" class="alert alert-danger">{{error}}</div>
-    <form #f="ngForm" (ngSubmit)="onSubmit(f.value)">
-      <div class="form-group">
-        <label for="email">Email</label>
-        <input type="text" class="form-control" name="email" ngModel required>
+<div class="modal-body">
+    <form #loginForm="ngForm" (ngSubmit)="onSubmit(loginForm.value)" class="text-center" action="/action_page.php">
+        <div class="form-group text-center">
+            <label for="email">Dirección de Correo Electronico:</label>
+            <input type="email" class="form-control" name="email" id="email" ngModel required>
+          </div>
+      <div class="form-group text-center">
+        <label for="contraseña">Contraseña:</label>
+        <input type="password" name="contraseña" class="form-control" ngModel required>
       </div>
-
-      <div class="form-group">
-        <label for="contraseña">Password</label>
-        <input type="password" class="form-control" name="contraseña" ngModel required>
+      <div class="form-group form-check text-center">
+        <label class="form-check-label">
+          <input class="form-check-input" type="checkbox"> Remember me
+        </label>
       </div>
-
-      <button type="submit" class="btn btn-success">Submit</button>
+      <hr>
+      <button type="submit" class="btn btn-primary btn-block ">Login</button>
     </form>
+
   </div>
-</div>
