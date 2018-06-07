@@ -7,6 +7,7 @@ import { ProfileComponent } from './components/profile/profile.component';
 import { DetailsComponent } from './components/details/details.component';
 import { CreacionPublicacionComponent } from './components/creacion-publicacion/creacion-publicacion.component';
 import { ListadoPublicacionComponent } from './components/listado-publicacion/listado-publicacion.component';
+import { DeletePublicacionComponent } from './components/delete-publicacion/delete-publicacion.component';
 
 const routes : Routes = [
     {path: '', component: HomeComponent},
@@ -17,6 +18,7 @@ const routes : Routes = [
     {path: 'post/get/:id', component: ListadoPublicacionComponent},
     {path: 'login', component: LoginPageComponent },
     {path: 'detalle/:id', component: DetailsComponent },
+    {path: 'delete/:id', component: DeletePublicacionComponent },
 ];
 
 @NgModule({

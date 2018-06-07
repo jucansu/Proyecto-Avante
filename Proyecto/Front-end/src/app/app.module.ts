@@ -15,6 +15,7 @@ import { ListadoPublicacionComponent } from './components/listado-publicacion/li
 import { DetailsComponent } from './components/details/details.component';
 import { AuthInterceptor } from './interceptors/auth.interceptor';
 import { NavbarComponent } from './components/navbar/navbar.component';
+import { DeletePublicacionComponent } from './components/delete-publicacion/delete-publicacion.component';
 
 
 @NgModule({
@@ -27,7 +28,8 @@ import { NavbarComponent } from './components/navbar/navbar.component';
     ProfileComponent,
     RegisterComponent,
     DetailsComponent,
-    NavbarComponent
+    NavbarComponent,
+    DeletePublicacionComponent
   ],
   imports: [
     BrowserModule,
