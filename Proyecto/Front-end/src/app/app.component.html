@@ -11,40 +11,7 @@
         <img class="mx-auto d-block" src="../assets/images/logo2.png" />
     </div>-->
 
-<nav class="navbar navbar-expand-lg bg-dark navbar-dark sticky-top">
-  <!--<nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">-->
-
-  <a class="navbar-brand" href="#">PepeBlog</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive"
-    aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <div class="collapse navbar-collapse" id="navbarResponsive">
-    <ul class="navbar-nav ml-auto">
-      <li class="nav-item active">
-        <a class="nav-link" href="#">Home
-          <span class="sr-only">(current)</span>
-        </a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" [routerLink]="['/post']">Crear un comentario</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" [routerLink]="['/profile']">Mi perfil</a>
-      </li>
-    </ul>
-
-
-    <ul class="navbar-nav ml-auto">
-      <li class="nav-item">
-        <a class="nav-link text-right" [routerLink]="['/register']" data-toggle="modal" data-target="#registroModal">Registrate</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" [routerLink]="['/login']" data-toggle="modal" data-target="#loginModal">Login</a>
-      </li>
-    </ul>
-  </div>
-</nav>
+    <navbar></navbar>
 
 <br>
 <div class=container>
@@ -133,28 +100,7 @@
         </div>
   
         <!-- Modal body -->
-        <div class="modal-body">
-          <form class="text-center" action="/action_page.php">
-              <div class="form-group text-center">
-                  <label for="email">Dirección de Correo Electronico:</label>
-                  <input type="email" class="form-control" id="email">
-                </div>
-            <div class="form-group text-center">
-              <label for="pwd">Contraseña:</label>
-              <input type="password" class="form-control">
-            </div>
-            <div class="form-group form-check text-center">
-              <label class="form-check-label">
-                <input class="form-check-input" type="checkbox"> Remember me
-              </label>
-            </div>
-            <hr>
-            <button type="submit" class="btn btn-primary btn-block ">Login</button>
-          </form>
-  
-        </div>
-  
-
+        <login-page></login-page>
    
 
       

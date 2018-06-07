@@ -3,6 +3,7 @@ import { Usuario } from '../../models/usuario';
 import { UserService } from '../../services/user.service';
 import { PublicacionService } from '../../services/publicacion.service';
 import { Publicacion } from '../../models/publicacion';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'login-page',
@@ -11,17 +12,21 @@ import { Publicacion } from '../../models/publicacion';
 })
 export class LoginPageComponent implements OnInit {
   constructor(private userService : UserService,
-    private publicacionService : PublicacionService) { }
+    private publicacionService : PublicacionService,
+  private route : Router) { }
 
   ngOnInit() {
   }
 
-  onSubmit(userForm){
+  onSubmit(userForm){    
     var usuario = new Usuario();
     usuario.email = userForm.email;
     usuario.contraseña = userForm.contraseña;
     this.userService.login(usuario).subscribe(user => {
       this.setCookie("pepe_login", user.token, 1);
+      if(user.token && user.token != ""){
+        this.route.navigate(['/']);
+      }
     });
   }
 

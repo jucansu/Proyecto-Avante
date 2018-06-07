@@ -14,6 +14,7 @@ import { CreacionPublicacionComponent } from './components/creacion-publicacion/
 import { ListadoPublicacionComponent } from './components/listado-publicacion/listado-publicacion.component';
 import { DetailsComponent } from './components/details/details.component';
 import { AuthInterceptor } from './interceptors/auth.interceptor';
+import { NavbarComponent } from './components/navbar/navbar.component';
 
 
 @NgModule({
@@ -25,7 +26,8 @@ import { AuthInterceptor } from './interceptors/auth.interceptor';
     LoginPageComponent,
     ProfileComponent,
     RegisterComponent,
-    DetailsComponent
+    DetailsComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,
