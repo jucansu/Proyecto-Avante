@@ -1,20 +1,30 @@
-<div class="modal-body">
-    <form #loginForm="ngForm" (ngSubmit)="onSubmit(loginForm.value)" class="text-center" action="/action_page.php">
-        <div class="form-group text-center">
-            <label for="email">Dirección de Correo Electronico:</label>
-            <input type="email" class="form-control" name="email" id="email" ngModel required>
-          </div>
-      <div class="form-group text-center">
-        <label for="contraseña">Contraseña:</label>
-        <input type="password" name="contraseña" class="form-control" ngModel required>
-      </div>
-      <div class="form-group form-check text-center">
-        <label class="form-check-label">
-          <input class="form-check-input" type="checkbox"> Remember me
-        </label>
-      </div>
-      <hr>
-      <button type="submit" class="btn btn-primary btn-block ">Login</button>
-    </form>
-
+<!-- The Modal of Login-->
+<div class="modal-content ">
+  
+  <!-- Modal Header -->
+  <div class="modal-header">
+    <h2 class="modal-title">Login</h2>
+    <button type="button" class="close" data-dismiss="modal">&times;</button>
   </div>
+  
+  <!-- Modal body -->
+  <div class="modal-body">
+      <form #loginForm="ngForm" (ngSubmit)="onSubmit(loginForm.value)" class="text-center" action="/action_page.php">
+          <div class="form-group text-center">
+              <label for="email">Dirección de Correo Electronico:</label>
+              <input type="email" class="form-control" name="email" id="email" ngModel required>
+            </div>
+        <div class="form-group text-center">
+          <label for="contraseña">Contraseña:</label>
+          <input type="password" name="contraseña" class="form-control" ngModel required>
+        </div>
+        <div class="form-group form-check text-center">
+          <label class="form-check-label">
+            <input class="form-check-input" type="checkbox"> Remember me
+          </label>
+        </div>
+        <hr>
+        <button type="submit" class="btn btn-primary btn-block ">Login</button>
+      </form>
+  </div>
+</div>

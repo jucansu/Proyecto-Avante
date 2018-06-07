@@ -15,6 +15,7 @@ import { ListadoPublicacionComponent } from './components/listado-publicacion/li
 import { DetailsComponent } from './components/details/details.component';
 import { AuthInterceptor } from './interceptors/auth.interceptor';
 import { NavbarComponent } from './components/navbar/navbar.component';
+import { RegisterPageComponent } from './components/register-page/register-page.component';
 
 import { FroalaEditorModule, FroalaViewModule } from 'angular-froala-wysiwyg';
 
@@ -29,7 +30,8 @@ import { FroalaEditorModule, FroalaViewModule } from 'angular-froala-wysiwyg';
     ProfileComponent,
     RegisterComponent,
     DetailsComponent,
-    NavbarComponent
+    NavbarComponent,
+    RegisterPageComponent
   ],
   imports: [
     FroalaEditorModule.forRoot(), 

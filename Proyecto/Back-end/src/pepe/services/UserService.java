@@ -53,17 +53,11 @@ public class UserService {
 	@Produces(MediaType.APPLICATION_JSON)
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Path("post/")
-	public List<Usuario> postUser(Usuario user) {
-		List<Usuario> res = new ArrayList<Usuario>();
-		try {
-			res = new UsuarioDAO().getUsers();
-		} catch (SQLException e1) {
-			e1.printStackTrace();
-		}
-		
+	public Usuario postUser(Usuario user) {
+		Usuario res = new Usuario();
 		try {
 			UsuarioDAO.addUser(user);
-			res = new UsuarioDAO().getUsers();
+			res = user;
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}

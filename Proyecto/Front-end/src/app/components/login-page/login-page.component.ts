@@ -3,7 +3,6 @@ import { Usuario } from '../../models/usuario';
 import { UserService } from '../../services/user.service';
 import { PublicacionService } from '../../services/publicacion.service';
 import { Publicacion } from '../../models/publicacion';
-import { Router } from '@angular/router';
 
 @Component({
   selector: 'login-page',
@@ -12,8 +11,7 @@ import { Router } from '@angular/router';
 })
 export class LoginPageComponent implements OnInit {
   constructor(private userService : UserService,
-    private publicacionService : PublicacionService,
-  private route : Router) { }
+    private publicacionService : PublicacionService) { }
 
   ngOnInit() {
   }
@@ -25,7 +23,7 @@ export class LoginPageComponent implements OnInit {
     this.userService.login(usuario).subscribe(user => {
       this.setCookie("pepe_login", user.token, 1);
       if(user.token && user.token != ""){
-        this.route.navigate(['/']);
+        location.reload();
       }
     });
   }
