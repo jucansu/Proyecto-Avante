@@ -9,17 +9,17 @@ import {
   HttpResponse
 } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
+import { Router } from '@angular/router';
 
 @Injectable()
 export class AuthInterceptor implements HttpInterceptor {
-  constructor() {}
+  constructor(private router:Router) {}
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     let cookies : String[] = document.cookie.split(";");
     let token : string = "";
     for(let cookie of cookies){
       if(cookie.includes("pepe_login")){
         token = cookie.substring(11);
-        console.log("token aas",token);
       }
     }
     const authReq = request.clone({
@@ -28,8 +28,12 @@ export class AuthInterceptor implements HttpInterceptor {
       }
     });
     return next.handle(authReq).pipe(
-      catchError(err => err.code === 401 
-        ? throwError("Unauthorized operation")
-        : throwError(err)));
+      catchError(err => {
+        if(err.status === 401 ){
+            this.router.navigate(["/login"]);
+        }
+        throw(err);
+        }));
+
   }
 }

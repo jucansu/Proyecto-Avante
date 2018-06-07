@@ -12,8 +12,8 @@ import { RegisterComponent } from './components/register/register.component';
 import { HomeComponent } from './components/home/home.component';
 import { CreacionPublicacionComponent } from './components/creacion-publicacion/creacion-publicacion.component';
 import { ListadoPublicacionComponent } from './components/listado-publicacion/listado-publicacion.component';
-import { AuthInterceptor } from './interceptors/auth.interceptor';
 import { DetailsComponent } from './components/details/details.component';
+import { AuthInterceptor } from './interceptors/auth.interceptor';
 
 
 @NgModule({
