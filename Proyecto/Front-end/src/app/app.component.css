@@ -12,9 +12,9 @@
 
  }
 
- .anuncio{
-    
- }
+ #anuncio img{
+    max-width: 100%;
+}
 
  .router{
      
