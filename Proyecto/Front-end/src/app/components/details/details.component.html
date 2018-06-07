@@ -9,4 +9,6 @@
     <div class="d-flex justify-content-end m-5">
         <span class="blockquote-footer ml-2"><img class="rounded-circle" src="{{usuario.avatar}}" alt="Generic placeholder image" width="30" height="30"> {{usuario.nombre}} {{usuario.apellidos}}</span> 
     </div>
+    <button class="btn btn-primary mb-3" style="cursor: pointer" (click)="deletePost(publicacion.id)">
+        Eliminar</button> 
 </div>

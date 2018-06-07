@@ -17,6 +17,7 @@ export class DetailsComponent implements OnInit {
 
   constructor(private publicacionService : PublicacionService,
     private userService : UserService,
+    private router : Router,
     private route : ActivatedRoute) { }
 
   ngOnInit() {
@@ -29,6 +30,11 @@ export class DetailsComponent implements OnInit {
         });
       });
     });
+  }
+
+  deletePost(id : number){
+    this.publicacionService.delete(id).subscribe();
+    this.router.navigate(['/']);
   }
 
 }
