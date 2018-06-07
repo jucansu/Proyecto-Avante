@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
 })
 export class ProfileComponent implements OnInit {
   private isLogged : boolean;
-  private loggedUser : Usuario;
+  private loggedUser : Usuario = new Usuario();
 
   constructor(private userService : UserService,
     private router : Router) { }

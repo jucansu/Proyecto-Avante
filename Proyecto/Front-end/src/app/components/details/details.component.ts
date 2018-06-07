@@ -12,8 +12,8 @@ import { Usuario } from '../../models/usuario';
 })
 export class DetailsComponent implements OnInit {
 
-  private publicacion : Publicacion;
-  private usuario : Usuario;
+  private publicacion : Publicacion = new Publicacion(0, "", "", "", new Date(), 0, 0);
+  private usuario : Usuario = new Usuario();
 
   constructor(private publicacionService : PublicacionService,
     private userService : UserService,
