@@ -7,13 +7,13 @@ import { AppComponent } from './app.component';
 import { LoginPageComponent } from './components/login-page/login-page.component';
 import { AppRoutingModule } from './app.routing';
 import { UserService } from './services/user.service';
-import { LocationStrategy, HashLocationStrategy } from '@angular/common';
 import { ProfileComponent } from './components/profile/profile.component';
 import { RegisterComponent } from './components/register/register.component';
 import { HomeComponent } from './components/home/home.component';
 import { CreacionPublicacionComponent } from './components/creacion-publicacion/creacion-publicacion.component';
 import { ListadoPublicacionComponent } from './components/listado-publicacion/listado-publicacion.component';
 import { AuthInterceptor } from './interceptors/auth.interceptor';
+import { DetailsComponent } from './components/details/details.component';
 
 
 @NgModule({
@@ -24,7 +24,8 @@ import { AuthInterceptor } from './interceptors/auth.interceptor';
     ListadoPublicacionComponent,
     LoginPageComponent,
     ProfileComponent,
-    RegisterComponent
+    RegisterComponent,
+    DetailsComponent
   ],
   imports: [
     BrowserModule,

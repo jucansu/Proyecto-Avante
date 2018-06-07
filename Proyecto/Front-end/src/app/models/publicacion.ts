@@ -5,9 +5,9 @@ export class Publicacion {
         public id: number,
         public titulo: string,
         public descripcion: string,
-        public etiquetas: string,
-        public fecha: string,
+        public etiqueta: string,
+        public fecha: Date,
         public valoracion: number,
-        public usuario : Usuario
+        public id_usuario : number
     ) { }
 }
