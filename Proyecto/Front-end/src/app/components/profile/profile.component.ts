@@ -25,7 +25,6 @@ export class ProfileComponent implements OnInit {
         break;
       }
     }
-    console.log("tras break", token);
     token = !token || token.trim().length == 0? "" : token.substring(36, token.length-36);
     if(token == ""){      
       this.router.navigate(['/']);

@@ -3,13 +3,15 @@ import { Usuario } from '../models/usuario';
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { environment } from '../../environments/environment';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
 
-  constructor(private http : HttpClient) { }
+  constructor(private http : HttpClient,
+    private router : Router) { }
 
   staticUrl:String = environment.baseApi + '/user/';
   
