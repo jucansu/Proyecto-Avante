@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms'
-import {HttpClientModule} from '@angular/common/http';
+import {HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { LoginPageComponent } from './components/login-page/login-page.component';
@@ -13,6 +13,8 @@ import { HomeComponent } from './components/home/home.component';
 import { CreacionPublicacionComponent } from './components/creacion-publicacion/creacion-publicacion.component';
 import { ListadoPublicacionComponent } from './components/listado-publicacion/listado-publicacion.component';
 import { DetailsComponent } from './components/details/details.component';
+import { AuthInterceptor } from './interceptors/auth.interceptor';
+import { NavbarComponent } from './components/navbar/navbar.component';
 
 
 @NgModule({
@@ -24,7 +26,8 @@ import { DetailsComponent } from './components/details/details.component';
     LoginPageComponent,
     ProfileComponent,
     RegisterComponent,
-    DetailsComponent
+    DetailsComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,
@@ -32,7 +35,7 @@ import { DetailsComponent } from './components/details/details.component';
     FormsModule,
     HttpClientModule
   ],
-  providers: [UserService],
+  providers: [UserService,{provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
