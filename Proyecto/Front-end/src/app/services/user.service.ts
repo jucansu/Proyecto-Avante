@@ -23,4 +23,8 @@ export class UserService {
     return this.http.get<Usuario>(this.staticUrl + 'get/' + userId);
   }
 
+  register(user : Usuario){
+    return this.http.post<Usuario>(this.staticUrl + 'post', user);
+  }
+
 }
