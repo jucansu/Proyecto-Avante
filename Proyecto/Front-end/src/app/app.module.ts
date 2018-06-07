@@ -17,6 +17,8 @@ import { AuthInterceptor } from './interceptors/auth.interceptor';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { RegisterPageComponent } from './components/register-page/register-page.component';
 
+import { FroalaEditorModule, FroalaViewModule } from 'angular-froala-wysiwyg';
+
 
 @NgModule({
   declarations: [
@@ -32,6 +34,8 @@ import { RegisterPageComponent } from './components/register-page/register-page.
     RegisterPageComponent
   ],
   imports: [
+    FroalaEditorModule.forRoot(), 
+    FroalaViewModule.forRoot(),
     BrowserModule,
     AppRoutingModule,
     FormsModule,
